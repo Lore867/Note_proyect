@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar Sesión - Note Taker</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body data-page="loginPageTitle">
+    <div class="auth-container">
+      <div class="header-login">
+        <h1 data-key="mainHeader">Note Taker</h1>
+        <div class="lang-switcher">
+          <button onclick="setLanguage('es')">ES</button>
+          <button onclick="setLanguage('en')">EN</button>
+        </div>
+      </div>
+
+      <form id="login-form" class="auth-form">
+        <h2 data-key="loginHeader">Iniciar Sesión</h2>
+        <input
+          type="text"
+          id="login-username"
+          data-key="loginUsernamePlaceholder"
+          placeholder="Usuario"
+          required
+        />
+        <input
+          type="password"
+          id="login-password"
+          data-key="loginPasswordPlaceholder"
+          placeholder="Contraseña"
+          required
+        />
+        <button type="submit" data-key="loginButton">Entrar</button>
+        <p id="login-error" class="error-message"></p>
+      </form>
+
+      <hr />
+
+      <form id="register-form" class="auth-form">
+        <h2 data-key="registerHeader">¿No tienes cuenta? Regístrate</h2>
+        <input
+          type="text"
+          id="register-username"
+          data-key="registerUsernamePlaceholder"
+          placeholder="Elige un usuario"
+          required
+        />
+        <input
+          type="password"
+          id="register-password"
+          data-key="registerPasswordPlaceholder"
+          placeholder="Elige una contraseña"
+          required
+        />
+        <button type="submit" data-key="registerButton">Registrar</button>
+        <p id="register-message" class="success-message"></p>
+      </form>
+    </div>
+    <script src="i18n.js"></script>
+    <script src="auth.js"></script>
+  </body>
+</html>

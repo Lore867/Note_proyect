@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #212529;
+    font-weight: 700; 
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0; 
+}
+
+#logout-btn {
+    border-color: #6c757d;
+    color: #6c757d;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+
+#note-form input[type="text"], #note-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#note-form input[type="text"]:focus, #note-form textarea:focus {
+    outline: none;
+    border-color: #8a2be2;
+    box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.2);
+}
+
+#note-form button {
+    margin: 10px 0;
+    background: linear-gradient(45deg, #8a2be2, #ff1493);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+}
+
+#note-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+}
+
+/* Estilos de Notas */
+.note {
+    padding: 20px;
+    margin-bottom: 10px;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.note h3 {
+    margin-top: 0;
+    font-weight: 500;
+    color: #212529;
+}
+
+.note p {
+    white-space: pre-wrap; 
+    color: #495057;
+}
+
+.note-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-action {
+    background: none;
+    border: 1px solid #ced4da;
+    color: #495057;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+.edit-note {
+    border-color: #2575fc;
+    color: #2575fc;
+}
+.toggle-archive {
+    border-color: #f5a623;
+    color: #f5a623;
+}
+.delete-note {
+    border-color: #d9534f;
+    color: #d9534f;
+}
+
+.note-tags {
+    margin-top: 15px;
+}
+
+.note-tags span {
+    display: inline-block;
+    background: #e9ecef;
+    color: #495057;
+    padding: 4px 10px;
+    margin: 0 5px 5px 0;
+    border-radius: 15px; 
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+
+#view-buttons {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.view-btn {
+    background: none;
+    color: #6c757d;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-bottom: 2px solid #dee2e6;
+    cursor: pointer;
+    margin: 0 5px;
+    font-weight: 600;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.view-btn.active-view {
+    color: #8a2be2;
+    border-bottom-color: #8a2be2;
+}
+
+.view-btn:hover:not(.active-view) {
+    color: #8a2be2;
+}
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+    animation: fadeInUp 0.3s ease;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+.modal-actions {
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 8px;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.modal-actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+#modal-confirm-btn {
+    background-color: #d9534f; 
+    color: white;
+    box-shadow: 0 4px 15px rgba(217, 83, 79, 0.3);
+}
+
+#modal-cancel-btn {
+    background-color: #6c757d;
+    color: white;
+    box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+}
+
+.lang-switcher {
+    display: flex;
+}
+
+.lang-switcher button {
+    background: none;
+    border: 1px solid #ddd;
+    color: #6c757d;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}

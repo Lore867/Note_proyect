@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Taker</title> 
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="appPageTitle">
+    <div class="container">
+        <div class="header">
+            <h1 data-key="mainHeader">Note Taker</h1>
+            <div class="header-actions">
+                <div class="lang-switcher">
+                    <button onclick="setLanguage('es')">ES</button>
+                    <button onclick="setLanguage('en')">EN</button>
+                </div>
+                <button id="logout-btn" class="btn-action" data-key="logoutButton">Cerrar Sesión</button>
+            </div>
+        </div>
+
+        <div id="view-buttons">
+            <button class="view-btn active-view" data-view="active" data-key="activeNotes">Notas Activas</button>
+            <button class="view-btn" data-view="archived" data-key="archivedNotes">Notas Archivadas</button>
+        </div>
+
+<form id="note-form">
+    <input type="text" id="title" data-key="formTitlePlaceholder" placeholder="Título" required>
+    <textarea id="content" data-key="formContentPlaceholder" placeholder="Contenido de la nota" required></textarea>
+    <input type="text" id="tags" data-key="formTagsPlaceholder" placeholder="Etiquetas (separadas por coma)">
+    <button type="submit" data-key="saveNoteButton">Guardar Nota</button>
+</form>
+
+<div id="notes-container"></div>
+
+    <div id="confirm-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <p data-key="confirmDeleteMessage">¿Estás seguro de que quieres eliminar esta nota?</p>
+            <div class="modal-actions">
+                <button id="modal-confirm-btn" data-key="confirmButton">Confirmar</button>
+                <button id="modal-cancel-btn" data-key="cancelButton">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
