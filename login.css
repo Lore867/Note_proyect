@@ -70,6 +70,31 @@ h2 {
     box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
 }
 
+/* Estilo para el botón "Registrar" creado dinámicamente */
+#show-register-btn,
+.show-register-btn {
+    /* Mismo estilo que .auth-form button */
+    width: 100%;
+    background: linear-gradient(45deg, #8a2be2, #ff1493);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+#show-register-btn:hover,
+.show-register-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+}
+
 .error-message {
     color: #d9534f;
     margin-top: 10px;
