@@ -25,6 +25,18 @@ document.addEventListener("DOMContentLoaded", () => {
       showRegisterBtn.id = "show-register-btn";
       showRegisterBtn.type = "button";
       showRegisterBtn.textContent = translations[lang].registerButton || "Registrar";
+
+      // Copiar clases de un botón existente para mantener el mismo estilo
+      const sampleBtn =
+        document.querySelector("button.btn-action, button[type='submit'], .view-btn, .btn") ||
+        document.querySelector("button");
+      if (sampleBtn) {
+        showRegisterBtn.className = sampleBtn.className;
+      } else {
+        // fallback si no hay ningún botón para copiar
+        showRegisterBtn.className = "btn-action";
+      }
+
       // Insertar el botón justo antes del formulario de registro
       registerForm.parentNode.insertBefore(showRegisterBtn, registerForm);
     } else {
