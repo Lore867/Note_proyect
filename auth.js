@@ -7,8 +7,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginError = document.getElementById("login-error");
   const registerMessage = document.getElementById("register-message");
 
+  const lang = getLanguage();
+
+  // Si ya hay sesión, redirigir
   if (sessionStorage.getItem("loggedInUser")) {
     window.location.href = "index.html";
+  }
+
+  // Ocultar el formulario de registro por defecto y añadir botón para mostrarlo
+  if (registerForm) {
+    registerForm.style.display = "none";
+
+    // Crear botón de mostrar registro si no existe
+    let showRegisterBtn = document.getElementById("show-register-btn");
+    if (!showRegisterBtn) {
+      showRegisterBtn = document.createElement("button");
+      showRegisterBtn.id = "show-register-btn";
+      showRegisterBtn.type = "button";
+      showRegisterBtn.textContent = translations[lang].registerButton || "Registrar";
+      // Insertar el botón justo antes del formulario de registro
+      registerForm.parentNode.insertBefore(showRegisterBtn, registerForm);
+    } else {
+      showRegisterBtn.style.display = "";
+      showRegisterBtn.textContent = translations[lang].registerButton || "Registrar";
+    }
+
+    showRegisterBtn.addEventListener("click", () => {
+      registerForm.style.display = "";
+      showRegisterBtn.style.display = "none";
+      const firstInput = registerForm.querySelector("input, textarea, select");
+      if (firstInput) firstInput.focus();
+    });
   }
 
   /**
@@ -47,6 +76,11 @@ document.addEventListener("DOMContentLoaded", () => {
     registerMessage.textContent = translations[lang].registerSuccess;
     registerMessage.className = "success-message";
     registerForm.reset();
+
+    // Ocultar el formulario de registro después del registro exitoso y mostrar el botón
+    if (registerForm) registerForm.style.display = "none";
+    const showRegisterBtn = document.getElementById("show-register-btn");
+    if (showRegisterBtn) showRegisterBtn.style.display = "";
   });
 
   loginForm.addEventListener("submit", (e) => {
