@@ -164,12 +164,16 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!note) throw new Error("Nota no encontrada");
       document.getElementById("title").value = note.title;
       document.getElementById("content").value = note.content;
-      document.getElementById("tags").value = note.tags.join(", ");
+      document.getElementById("tags").value = (note.tags || []).join(", ");
 
       noteForm.dataset.editingId = noteId;
       // Cambiar texto del botón a "Guardar Cambios"
       noteForm.querySelector('button[type="submit"]').textContent =
         translations[getLanguage()].saveChangesButton;
+
+      // Mostrar el formulario aunque estemos en la vista "archived"
+      if (noteForm) noteForm.style.display = "";
+
       window.scrollTo(0, 0);
     } catch (error) {
       console.error("Error al cargar nota para editar:", error);
