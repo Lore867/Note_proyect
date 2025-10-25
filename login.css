@@ -42,7 +42,6 @@ h2 {
 }
 
 .auth-form input {
-    width: 100%;
     padding: 12px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
@@ -74,7 +73,6 @@ h2 {
 #show-register-btn,
 .show-register-btn {
     /* Mismo estilo que .auth-form button */
-    width: 100%;
     background: linear-gradient(45deg, #8a2be2, #ff1493);
     color: white;
     padding: 12px 20px;
