@@ -3,9 +3,6 @@
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f8f9fa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0;
 }
 
@@ -52,7 +49,6 @@ h2 {
 }
 
 .auth-form button {
-    width: 100%;
     background: linear-gradient(45deg, #8a2be2, #ff1493);
     color: white;
     padding: 12px 20px;
