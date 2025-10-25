@@ -55,6 +55,23 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
       updateViewButtons();
+
+      // --- Ocultar/mostrar formulario según la vista ---
+      if (noteForm) {
+        if (currentView === "archived") {
+          // Si estamos en la vista archivada, ocultar el formulario y cancelar cualquier edición en curso
+          noteForm.reset();
+          delete noteForm.dataset.editingId;
+          const submitBtn = noteForm.querySelector('button[type="submit"]');
+          if (submitBtn) {
+            submitBtn.textContent = translations[getLanguage()].saveNoteButton;
+          }
+          noteForm.style.display = "none";
+        } else {
+          // Restaurar visibilidad del formulario en vistas distintas de "archived"
+          noteForm.style.display = "";
+        }
+      }
     } catch (error) {
       console.error("Error al cargar las notas desde localStorage:", error);
       notesContainer.innerHTML = `<p data-key="errorLoadingNotes">${
